@@ -11,13 +11,8 @@ def baixar_video(link, destino, progresso_callback=None):
     try:
         print(f"Tentando baixar o vídeo do link: {link}")
         ydl_opts = {
-            'format': 'bestvideo+bestaudio/best',
+            'format': 'best',  # Baixar a melhor qualidade disponível com áudio e vídeo
             'outtmpl': os.path.join(destino, '%(title)s.%(ext)s'),
-            'merge_output_format': 'mp4',
-            'postprocessors': [{
-                'key': 'FFmpegVideoConvertor',
-                'preferedformat': 'mp4',
-            }],
             'progress_hooks': [lambda d: progresso_callback(d) if progresso_callback else None]
         }
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
@@ -32,18 +27,13 @@ def baixar_audio(link, destino, progresso_callback=None):
     try:
         print(f"Tentando baixar o áudio do link: {link}")
         ydl_opts = {
-            'format': 'bestaudio/best',
+            'format': 'bestaudio/best',  # Baixar o melhor áudio disponível
             'outtmpl': os.path.join(destino, '%(title)s.%(ext)s'),
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
             'progress_hooks': [lambda d: progresso_callback(d) if progresso_callback else None]
         }
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=True)
-            arquivo = ydl.prepare_filename(info_dict).replace('.webm', '.mp3').replace('.m4a', '.mp3')
+            arquivo = ydl.prepare_filename(info_dict)
         return f'Download realizado!'
     except Exception as e:
         return f'Falha no download do áudio: {str(e)}'
@@ -86,7 +76,7 @@ window.geometry("550x300")
 window.title("YouTube Downloader MP4 e MP3")
 
 script_dir = getattr(window, '_MEIPASS', os.path.dirname(os.path.realpath(__file__)))
-img_path = os.path.join(script_dir, r"C:/Users/Usuario/Documents/Python/YouTube Video/bg.png")
+img_path = os.path.join(script_dir, r"bg.png")
 
 img = customtkinter.CTkImage(Image.open(img_path), size=(430, 510))
 img_label = customtkinter.CTkLabel(window, image=img, text='')
