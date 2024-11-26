@@ -14,7 +14,7 @@ Este projeto é um aplicativo de desktop em Python para baixar vídeos e áudios
 
 Para utilizar o `ffmpeg` no seu projeto, é necessário instalá-lo e configurá-lo corretamente no seu sistema. Siga os passos abaixo para realizar a instalação e configurar o `ffmpeg` como variável de ambiente.
 
-### 1. Baixando o FFmpeg
+### Baixando o FFmpeg
 
 1. **Acesse o site oficial do FFmpeg**: [FFmpeg Downloads](https://ffmpeg.org/download.html).
 2. **Escolha o seu sistema operacional** e baixe a versão adequada:
