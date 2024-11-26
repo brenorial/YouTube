@@ -22,8 +22,6 @@ Para utilizar o `ffmpeg` no seu projeto, é necessário instalá-lo e configurá
    - **Mac**: Acesse a seção "Mac" e use o Homebrew para instalar (`brew install ffmpeg`).
    - **Linux**: Acesse a seção "Linux" e use o gerenciador de pacotes da sua distribuição para instalar (`sudo apt install ffmpeg` para distribuições baseadas no Debian/Ubuntu).
 
-### 2. Instalando o FFmpeg
-
 # Como Adicionar o FFmpeg às Variáveis de Ambiente
 
 O `FFmpeg` é uma ferramenta de linha de comando para converter multimídia. Para usá-lo de qualquer lugar no seu sistema, você precisa adicionar o diretório do executável `ffmpeg` às variáveis de ambiente do sistema. Abaixo estão as etapas para Windows e macOS/Linux.
